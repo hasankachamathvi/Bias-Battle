@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-Pop Quiz 🎤 | Test Your K-Pop Knowledge!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>🎤 K-Pop Quiz</h1>
+            <p class="subtitle">Test Your Ultimate K-Pop Knowledge!</p>
+        </header>
+
+        <!-- Main Menu -->
+        <div id="menu" class="screen active">
+            <div class="menu-content">
+                <h2>Choose Your Category</h2>
+                <div class="category-grid">
+                    <button class="category-btn" onclick="startQuiz('all')">
+                        <span class="category-icon">🌟</span>
+                        <span class="category-name">All Groups</span>
+                    </button>
+                    <button class="category-btn" onclick="startQuiz('bts')">
+                        <span class="category-icon">💜</span>
+                        <span class="category-name">BTS</span>
+                    </button>
+                    <button class="category-btn" onclick="startQuiz('blackpink')">
+                        <span class="category-icon">💗</span>
+                        <span class="category-name">BLACKPINK</span>
+                    </button>
+                    <button class="category-btn" onclick="startQuiz('straykids')">
+                        <span class="category-icon">⚡</span>
+                        <span class="category-name">Stray Kids</span>
+                    </button>
+                    <button class="category-btn" onclick="startQuiz('twice')">
+                        <span class="category-icon">🍭</span>
+                        <span class="category-name">TWICE</span>
+                    </button>
+                    <button class="category-btn" onclick="startQuiz('exo')">
+                        <span class="category-icon">🌌</span>
+                        <span class="category-name">EXO</span>
+                    </button>
+                    <button class="category-btn" onclick="startQuiz('txt')">
+                        <span class="category-icon">🦄</span>
+                        <span class="category-name">TXT</span>
+                    </button>
+                    <button class="category-btn" onclick="startQuiz('ateez')">
+                        <span class="category-icon">🏴‍☠️</span>
+                        <span class="category-name">ATEEZ</span>
+                    </button>
+                    <button class="category-btn" onclick="startQuiz('enhypen')">
+                        <span class="category-icon">🔥</span>
+                        <span class="category-name">ENHYPEN</span>
+                    </button>
+                </div>
+                <button class="secondary-btn" onclick="showLeaderboard()">📊 View Leaderboard</button>
+                <button class="secondary-btn" onclick="showAchievements()">🏆 My Achievements</button>
+            </div>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div id="quiz" class="screen">
+            <div class="quiz-header">
+                <div class="quiz-info">
+                    <span class="question-counter">Question <span id="currentQuestion">1</span>/<span id="totalQuestions">10</span></span>
+                    <span class="category-badge" id="categoryBadge">All Groups</span>
+                </div>
+                <div class="score-timer">
+                    <span class="score-display">Score: <span id="score">0</span></span>
+                    <span class="timer" id="timer">⏱️ 15s</span>
+                </div>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressBar"></div>
+            </div>
+
+            <div class="question-container">
+                <h2 id="question">Question will appear here</h2>
+                <div id="answersContainer" class="answers-container">
+                    <!-- Answer buttons will be generated here -->
+                </div>
+            </div>
+
+            <button class="skip-btn" onclick="skipQuestion()">Skip Question →</button>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="results" class="screen">
+            <div class="results-content">
+                <h2>Quiz Complete! 🎉</h2>
+                <div class="final-score">
+                    <p class="score-label">Your Score</p>
+                    <p class="score-value" id="finalScore">0</p>
+                    <p class="score-percentage" id="scorePercentage">0%</p>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-value" id="correctAnswers">0</span>
+                        <span class="stat-label">Correct</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="wrongAnswers">0</span>
+                        <span class="stat-label">Wrong</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="skippedAnswers">0</span>
+                        <span class="stat-label">Skipped</span>
+                    </div>
+                </div>
+
+                <div class="rank-message" id="rankMessage"></div>
+
+                <div class="new-achievements" id="newAchievements"></div>
+
+                <div class="name-input-container" id="nameInputContainer">
+                    <h3>Save Your Score!</h3>
+                    <input type="text" id="playerName" placeholder="Enter your name" maxlength="20">
+                    <button class="primary-btn" onclick="saveScore()">Save to Leaderboard</button>
+                </div>
+
+                <div class="results-actions">
+                    <button class="primary-btn" onclick="returnToMenu()">🏠 Back to Menu</button>
+                    <button class="secondary-btn" onclick="playAgain()">🔄 Play Again</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Leaderboard Screen -->
+        <div id="leaderboard" class="screen">
+            <div class="leaderboard-content">
+                <h2>🏆 Leaderboard</h2>
+                <div class="leaderboard-filter">
+                    <button class="filter-btn active" onclick="filterLeaderboard('all')">All</button>
+                    <button class="filter-btn" onclick="filterLeaderboard('bts')">BTS</button>
+                    <button class="filter-btn" onclick="filterLeaderboard('blackpink')">BLACKPINK</button>
+                    <button class="filter-btn" onclick="filterLeaderboard('straykids')">Stray Kids</button>
+                    <button class="filter-btn" onclick="filterLeaderboard('twice')">TWICE</button>
+                    <button class="filter-btn" onclick="filterLeaderboard('exo')">EXO</button>
+                    <button class="filter-btn" onclick="filterLeaderboard('txt')">TXT</button>
+                    <button class="filter-btn" onclick="filterLeaderboard('ateez')">ATEEZ</button>
+                    <button class="filter-btn" onclick="filterLeaderboard('enhypen')">ENHYPEN</button>
+                </div>
+                <div id="leaderboardList" class="leaderboard-list">
+                    <!-- Leaderboard entries will be generated here -->
+                </div>
+                <button class="secondary-btn" onclick="returnToMenu()">← Back to Menu</button>
+            </div>
+        </div>
+
+        <!-- Achievements Screen -->
+        <div id="achievements" class="screen">
+            <div class="achievements-content">
+                <h2>🏆 Your Achievements</h2>
+                <div id="achievementsList" class="achievements-grid">
+                    <!-- Achievements will be generated here -->
+                </div>
+                <button class="secondary-btn" onclick="returnToMenu()">← Back to Menu</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
