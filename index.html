@@ -27,21 +27,13 @@
                         <span class="category-icon">💜</span>
                         <span class="category-name">BTS</span>
                     </button>
-                    <button class="category-btn" onclick="startQuiz('blackpink')">
-                        <span class="category-icon">💗</span>
-                        <span class="category-name">BLACKPINK</span>
+                    <button class="category-btn" onclick="startQuiz('seventeen')">
+                        <span class="category-icon">💎</span>
+                        <span class="category-name">SEVENTEEN</span>
                     </button>
                     <button class="category-btn" onclick="startQuiz('straykids')">
                         <span class="category-icon">⚡</span>
                         <span class="category-name">Stray Kids</span>
-                    </button>
-                    <button class="category-btn" onclick="startQuiz('twice')">
-                        <span class="category-icon">🍭</span>
-                        <span class="category-name">TWICE</span>
-                    </button>
-                    <button class="category-btn" onclick="startQuiz('exo')">
-                        <span class="category-icon">🌌</span>
-                        <span class="category-name">EXO</span>
                     </button>
                     <button class="category-btn" onclick="startQuiz('txt')">
                         <span class="category-icon">🦄</span>
@@ -54,6 +46,18 @@
                     <button class="category-btn" onclick="startQuiz('enhypen')">
                         <span class="category-icon">🔥</span>
                         <span class="category-name">ENHYPEN</span>
+                    </button>
+                    <button class="category-btn" onclick="startQuiz('exo')">
+                        <span class="category-icon">🌌</span>
+                        <span class="category-name">EXO</span>
+                    </button>
+                    <button class="category-btn" onclick="startQuiz('blackpink')">
+                        <span class="category-icon">💗</span>
+                        <span class="category-name">BLACKPINK</span>
+                    </button>
+                    <button class="category-btn" onclick="startQuiz('twice')">
+                        <span class="category-icon">🍭</span>
+                        <span class="category-name">TWICE</span>
                     </button>
                 </div>
                 <button class="secondary-btn" onclick="showLeaderboard()">📊 View Leaderboard</button>
@@ -137,13 +141,14 @@
                 <div class="leaderboard-filter">
                     <button class="filter-btn active" onclick="filterLeaderboard('all')">All</button>
                     <button class="filter-btn" onclick="filterLeaderboard('bts')">BTS</button>
-                    <button class="filter-btn" onclick="filterLeaderboard('blackpink')">BLACKPINK</button>
+                    <button class="filter-btn" onclick="filterLeaderboard('seventeen')">SEVENTEEN</button>
                     <button class="filter-btn" onclick="filterLeaderboard('straykids')">Stray Kids</button>
-                    <button class="filter-btn" onclick="filterLeaderboard('twice')">TWICE</button>
-                    <button class="filter-btn" onclick="filterLeaderboard('exo')">EXO</button>
                     <button class="filter-btn" onclick="filterLeaderboard('txt')">TXT</button>
                     <button class="filter-btn" onclick="filterLeaderboard('ateez')">ATEEZ</button>
                     <button class="filter-btn" onclick="filterLeaderboard('enhypen')">ENHYPEN</button>
+                    <button class="filter-btn" onclick="filterLeaderboard('exo')">EXO</button>
+                    <button class="filter-btn" onclick="filterLeaderboard('blackpink')">BLACKPINK</button>
+                    <button class="filter-btn" onclick="filterLeaderboard('twice')">TWICE</button>
                 </div>
                 <div id="leaderboardList" class="leaderboard-list">
                     <!-- Leaderboard entries will be generated here -->

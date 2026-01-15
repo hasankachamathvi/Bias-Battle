@@ -23,6 +23,18 @@ const questionBank = {
         { q: "What color is associated with BTS?", options: ["Pink", "Purple", "Blue", "Yellow"], answer: 1, type: "mcq" },
         { q: "BTS has 8 members", options: ["True", "False"], answer: 1, type: "tf" }
     ],
+    seventeen: [
+        { q: "How many members does SEVENTEEN have?", options: ["13", "17", "15", "11"], answer: 0, type: "mcq" },
+        { q: "SEVENTEEN is self-producing", options: ["True", "False"], answer: 0, type: "tf" },
+        { q: "Who is the leader of SEVENTEEN?", options: ["Joshua", "Woozi", "S.Coups", "Hoshi"], answer: 2, type: "mcq" },
+        { q: "What is SEVENTEEN's fandom name?", options: ["CARAT", "DIAMOND", "JEWEL", "CRYSTAL"], answer: 0, type: "mcq" },
+        { q: "SEVENTEEN debuted in 2015", options: ["True", "False"], answer: 0, type: "tf" },
+        { q: "How many sub-units does SEVENTEEN have?", options: ["2", "3", "4", "5"], answer: 1, type: "mcq" },
+        { q: "Woozi produces most of SEVENTEEN's music", options: ["True", "False"], answer: 0, type: "tf" },
+        { q: "What was SEVENTEEN's debut song?", options: ["Mansae", "Adore U", "Pretty U", "Don't Wanna Cry"], answer: 1, type: "mcq" },
+        { q: "Vernon is half Korean and half American", options: ["True", "False"], answer: 0, type: "tf" },
+        { q: "Which member is the main choreographer?", options: ["Jun", "The8", "Hoshi", "Dino"], answer: 2, type: "mcq" }
+    ],
     blackpink: [
         { q: "How many members does BLACKPINK have?", options: ["3", "4", "5", "6"], answer: 1, type: "mcq" },
         { q: "BLACKPINK debuted in 2016", options: ["True", "False"], answer: 0, type: "tf" },
@@ -113,7 +125,7 @@ const questionBank = {
 const achievementsList = [
     { id: 'rookie', name: '🎤 Rookie Fan', description: 'Complete your first quiz', icon: '🎤', condition: () => getCompletedQuizzes() >= 1 },
     { id: 'army_level1', name: '💜 ARMY Level 1', description: 'Score 50+ points in any quiz', icon: '💜', condition: () => getHighestScore() >= 50 },
-    { id: 'multi_stan', name: '🌟 Multi-Stan', description: 'Play all categories', icon: '🌟', condition: () => getPlayedCategories().length >= 9 },
+    { id: 'multi_stan', name: '🌟 Multi-Stan', description: 'Play all categories', icon: '🌟', condition: () => getPlayedCategories().length >= 10 },
     { id: 'perfectionist', name: '✨ Perfectionist', description: 'Get 100% score in any quiz', icon: '✨', condition: () => hasPerfectScore() },
     { id: 'ultimate_fan', name: '👑 Ultimate K-Pop Fan', description: 'Score 100+ points', icon: '👑', condition: () => getHighestScore() >= 100 },
     { id: 'speed_demon', name: '⚡ Speed Demon', description: 'Answer 5 questions in under 5 seconds each', icon: '⚡', condition: () => false }, // Tracked in-game
@@ -529,13 +541,14 @@ function getCategoryDisplayName(category) {
     const names = {
         'all': 'All Groups',
         'bts': 'BTS',
-        'blackpink': 'BLACKPINK',
+        'seventeen': 'SEVENTEEN',
         'straykids': 'Stray Kids',
-        'twice': 'TWICE',
-        'exo': 'EXO',
         'txt': 'TXT',
         'ateez': 'ATEEZ',
-        'enhypen': 'ENHYPEN'
+        'enhypen': 'ENHYPEN',
+        'exo': 'EXO',
+        'blackpink': 'BLACKPINK',
+        'twice': 'TWICE'
     };
     return names[category] || category;
 }
